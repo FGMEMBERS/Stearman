@@ -140,8 +140,8 @@
         <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
   </gear>
 
-  <!-- Fuel: 25 lbs -->
-  <tank x="1.824" y="0" z="1.162" capacity="25"/>
+  <!-- Fuel: 250 lbs -->
+  <tank x="1.824" y="0" z="1.162" capacity="250"/>
 
   <weight x="0.609" y="0.0" z="0.166" mass-prop="/sim/weight[0]/weight-lb"/>
 
