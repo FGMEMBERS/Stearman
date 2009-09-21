@@ -9,7 +9,8 @@
      Hauteur              : 2.79 m   (  9 ft 2 in  )
      Masse à vide         : 878 kg   ( 1936 lb )
      Moteur               : 1× Continental R-670-5, 220 hp
-     Vitesse max          : 198 km/h ( )
+     Vitesse max          : 198 km/h ( 108 kts )
+     Vitesse de croière   : 165 km/h (  90 kts ) aproximatif :(
 -->
 
 <airplane mass="1936" >
@@ -20,7 +21,7 @@
     <solve-weight idx="0" weight="180"/>
   </approach>
 
-  <cruise speed="108" alt="5000" fuel="0.5" >
+  <cruise speed="90" alt="5000" fuel="0.5" >
     <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0" />
     <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65" />
     <solve-weight idx="0" weight="180"/>
@@ -92,7 +93,7 @@
              moment="-4"
              cruise-power="180"
              cruise-alt="5000"
-             cruise-speed="108"
+             cruise-speed="90"
              cruise-rpm="2100"
              takeoff-power="220"
              takeoff-rpm="2300">
@@ -139,8 +140,8 @@
         <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
   </gear>
 
-  <!-- Fuel: Forward 142 lbs -->
-  <tank x="1.824" y="0" z="1.162" capacity="142"/>
+  <!-- Fuel: 25 lbs -->
+  <tank x="1.824" y="0" z="1.162" capacity="25"/>
 
   <weight x="0.609" y="0.0" z="0.166" mass-prop="/sim/weight[0]/weight-lb"/>
 
