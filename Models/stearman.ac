@@ -120073,7 +120073,7 @@ OBJECT poly
 name "profondeur"
 data 10
 profondeur
-texture "profile.png"
+texture "texture.png"
 texrep 1 1
 crease 30.000000
 numvert 324
