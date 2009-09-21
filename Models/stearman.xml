@@ -26,8 +26,12 @@
     <object-name>profondeur</object-name>
     <object-name>direction</object-name>
     <object-name>axeG</object-name>
+    <object-name>articuleGH</object-name>
+    <object-name>articuleGB</object-name>
     <object-name>roueG</object-name>
     <object-name>axeD</object-name>
+    <object-name>articuleDH</object-name>
+    <object-name>articuleDB</object-name>
     <object-name>roueD</object-name>
     <object-name>axeA</object-name>
     <object-name>roueA</object-name>
@@ -40,6 +44,8 @@
     <object-name>montants</object-name>
     <object-name>pieds</object-name>
     <object-name>rebord</object-name>
+    <object-name>grille</object-name>
+    <object-name>arbres</object-name>
 
     <!-- Objets transparents -->
     <object-name>vitres</object-name>
@@ -75,8 +81,12 @@
     <object-name>profondeur</object-name>
     <object-name>direction</object-name>
     <object-name>axeG</object-name>
+    <object-name>articuleGH</object-name>
+    <object-name>articuleGB</object-name>
     <object-name>roueG</object-name>
     <object-name>axeD</object-name>
+    <object-name>articuleDH</object-name>
+    <object-name>articuleDB</object-name>
     <object-name>roueD</object-name>
     <object-name>axeA</object-name>
     <object-name>roueA</object-name>
@@ -89,6 +99,8 @@
     <object-name>montants</object-name>
     <object-name>pieds</object-name>
     <object-name>rebord</object-name>
+    <object-name>grille</object-name>
+    <object-name>arbres</object-name>
 
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
@@ -278,6 +290,128 @@
       <x> 0 </x>
       <y> 1 </y>
       <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Compression -->
+  <animation>
+    <type>rotate</type>
+    <object-name>articuleGB</object-name>
+    <property>/gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep>   4 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> -30 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -2.407 </x1-m>
+      <y1-m> -0.805 </y1-m>
+      <z1-m> -1.059 </z1-m>
+      <x2-m> -2.407 </x2-m>
+      <y2-m> -0.772 </y2-m>
+      <z2-m> -1.076 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainGauche</name>
+    <object-name>axeG</object-name>
+    <object-name>articuleGB</object-name>
+    <object-name>roueG</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>TrainGauche</object-name>
+    <property>/gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep>  0.04 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> -0.20 </dep></entry>
+    </interpolation>
+    <axis>
+      <x>  0.000000 </x>
+      <y> -0.052605 </y>
+      <z> -0.103242 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>articuleGH</object-name>
+    <property>/gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep> -4 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> 30 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -2.407 </x1-m>
+      <y1-m> -0.737 </y1-m>
+      <z1-m> -0.926 </z1-m>
+      <x2-m> -2.407 </x2-m>
+      <y2-m> -0.704 </y2-m>
+      <z2-m> -0.943 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>articuleDB</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep>   4 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> -30 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -2.407 </x1-m>
+      <y1-m>  0.772 </y1-m>
+      <z1-m> -1.076 </z1-m>
+      <x2-m> -2.407 </x2-m>
+      <y2-m>  0.805 </y2-m>
+      <z2-m> -1.059 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainDroit</name>
+    <object-name>axeD</object-name>
+    <object-name>articuleDB</object-name>
+    <object-name>roueD</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>TrainDroit</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep>  0.04 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>  0.00 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> -0.20 </dep></entry>
+    </interpolation>
+    <axis>
+      <x>  0.000000 </x>
+      <y>  0.052605 </y>
+      <z> -0.103242 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>articuleDH</object-name>
+    <property>/gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0.00 </ind><dep> -4 </dep></entry>
+      <entry><ind> 0.13 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1.00 </ind><dep> 30 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -2.407 </x1-m>
+      <y1-m>  0.704 </y1-m>
+      <z1-m> -0.943 </z1-m>
+      <x2-m> -2.407 </x2-m>
+      <y2-m>  0.737 </y2-m>
+      <z2-m> -0.926 </z2-m>
     </axis>
   </animation>
 
