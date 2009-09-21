@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <key n="4">
+    <name>Ctrl d</name>
+    <desc>Door engine</desc>
+    <binding>
+      <command>nasal</command>
+      <script>stearman.doorsystem.engineexport();</script>
+    </binding>
+  </key>
+
+  <key n="68">
+    <name>D</name>
+    <desc>Passenger door</desc>
+    <binding>
+      <command>nasal</command>
+      <script>stearman.doorsystem.passengerexport();</script>
+    </binding>
+  </key>
+
+  <key n="100">
+    <name>d</name>
+    <desc>Crew Ddor</desc>
+    <binding>
+      <command>nasal</command>
+      <script>stearman.doorsystem.crewexport();</script>
+    </binding>
+  </key>
+
+</PropertyList>
+
