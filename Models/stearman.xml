@@ -226,7 +226,7 @@
   <animation>
     <type>rotate</type>
     <object-name>aileronG</object-name>
-    <property>/surface-positions/left-aileron-pos-norm</property>
+    <property>surface-positions/left-aileron-pos-norm</property>
     <factor> 15 </factor>
     <center>
       <x-m> -0.854 </x-m>
@@ -243,7 +243,7 @@
   <animation>
     <type>rotate</type>
     <object-name>aileronD</object-name>
-    <property>/surface-positions/right-aileron-pos-norm</property>
+    <property>surface-positions/right-aileron-pos-norm</property>
     <factor> 15 </factor>
     <center>
       <x-m> -0.854 </x-m>
@@ -261,7 +261,7 @@
   <animation>
     <type>rotate</type>
     <object-name>direction</object-name>
-    <property>/surface-positions/rudder-pos-norm</property>
+    <property>surface-positions/rudder-pos-norm</property>
     <factor> 20 </factor>
     <center>
       <x-m> 2.825 </x-m>
@@ -279,7 +279,7 @@
   <animation>
     <type>rotate</type>
     <object-name>profondeur</object-name>
-    <property>/surface-positions/elevator-pos-norm</property>
+    <property>surface-positions/elevator-pos-norm</property>
     <factor> 20 </factor>
     <center>
       <x-m> 2.709 </x-m>
@@ -297,7 +297,7 @@
   <animation>
     <type>rotate</type>
     <object-name>articuleGB</object-name>
-    <property>/gear/gear[0]/compression-norm</property>
+    <property>gear/gear[0]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>   4 </dep></entry>
       <entry><ind> 1.00 </ind><dep> -30 </dep></entry>
@@ -322,7 +322,7 @@
   <animation>
     <type>translate</type>
     <object-name>TrainGauche</object-name>
-    <property>/gear/gear[0]/compression-norm</property>
+    <property>gear/gear[0]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0.04 </dep></entry>
       <entry><ind> 0.13 </ind><dep>  0.00 </dep></entry>
@@ -338,7 +338,7 @@
   <animation>
     <type>rotate</type>
     <object-name>articuleGH</object-name>
-    <property>/gear/gear[0]/compression-norm</property>
+    <property>gear/gear[0]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep> -4 </dep></entry>
       <entry><ind> 0.13 </ind><dep>  0 </dep></entry>
@@ -357,7 +357,7 @@
   <animation>
     <type>rotate</type>
     <object-name>articuleDB</object-name>
-    <property>/gear/gear[1]/compression-norm</property>
+    <property>gear/gear[1]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>   4 </dep></entry>
       <entry><ind> 0.13 </ind><dep>   0 </dep></entry>
@@ -383,7 +383,7 @@
   <animation>
     <type>translate</type>
     <object-name>TrainDroit</object-name>
-    <property>/gear/gear[1]/compression-norm</property>
+    <property>gear/gear[1]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep>  0.04 </dep></entry>
       <entry><ind> 0.13 </ind><dep>  0.00 </dep></entry>
@@ -399,7 +399,7 @@
   <animation>
     <type>rotate</type>
     <object-name>articuleDH</object-name>
-    <property>/gear/gear[1]/compression-norm</property>
+    <property>gear/gear[1]/compression-norm</property>
     <interpolation>
       <entry><ind> 0.00 </ind><dep> -4 </dep></entry>
       <entry><ind> 0.13 </ind><dep>  0 </dep></entry>
@@ -419,7 +419,7 @@
   <animation>
     <type>spin</type>
     <object-name>roueG</object-name>
-    <property>/gear/gear[0]/rollspeed-ms</property>
+    <property>gear/gear[0]/rollspeed-ms</property>
     <factor> 30 </factor>
     <center>
       <x-m> -2.363 </x-m>
@@ -436,7 +436,7 @@
   <animation>
     <type>spin</type>
     <object-name>roueD</object-name>
-    <property>/gear/gear[1]/rollspeed-ms</property>
+    <property>gear/gear[1]/rollspeed-ms</property>
     <factor> 30 </factor>
     <center>
       <x-m> -2.363 </x-m>
@@ -453,7 +453,7 @@
   <animation>
     <type>spin</type>
     <object-name>roueA</object-name>
-    <property>/gear/gear[2]/rollspeed-ms</property>
+    <property>gear/gear[2]/rollspeed-ms</property>
     <factor> 30 </factor>
     <center>
       <x-m>  2.957 </x-m>
