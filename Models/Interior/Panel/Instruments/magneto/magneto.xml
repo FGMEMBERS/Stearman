@@ -96,7 +96,7 @@
     <type>rotate</type>
     <object-name>select</object-name>
     <property>/controls/engines/engine/magnetos</property>
-    <factor>30</factor>
+    <factor>42</factor>
     <center>
       <x-m> 0 </x-m>
       <y-m> 0 </y-m>
