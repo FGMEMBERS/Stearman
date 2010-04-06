@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Boeing PT 17 Stearman BARANGER Emmanuel (2009) 
+     Update with Melchior script             (2010)
 
-     Sources      http://en.wikipedia.org/wiki/Boeing-Stearman_Model_75
+     Sources              : http://en.wikipedia.org/wiki/Boeing-Stearman_Model_75
 
      Envergure            : 9.81 m   ( 32 ft 2 in )
      Longueur             : 7.39 m   ( 24 ft 3 in )
      Hauteur              : 2.79 m   (  9 ft 2 in  )
-     Masse à vide         : 878 kg   ( 1936 lb )
-     Moteur               : 1× Continental R-670-5, 220 hp
+     Masse a vide         : 878 kg   ( 1936 lb )
+     Moteur               : 1 Continental R-670-5 220 hp
      Vitesse max          : 198 km/h ( 108 kts )
-     Vitesse de croière   : 165 km/h (  90 kts ) aproximatif :(
+     Vitesse de crosiere  : 165 km/h (  90 kts ) aproximatif :(
 -->
 
 <airplane mass="1936" >
@@ -29,7 +30,7 @@
 
   <cockpit x="0.518" y="0" z="0.679"/>
 
-  <fuselage ax="3.604" ay="0" az="0.123" bx="-3.625" by="0" bz="0.395" width="1.127" taper="0.2" midpoint="0.5"/>
+  <fuselage ax="3.462" ay="0" az="0.123" bx="-3.066" by="0" bz="0.165" width="1.09" taper="0.4" midpoint="0.2"/>
 
   <!-- Wing up -->
   <wing x="1.876" y="0" z="1.098"
@@ -44,7 +45,7 @@
          chord="1.508"
          length="4.903"
          taper="1"
-         camber="0.047">
+         camber="0.08">
          <stall aoa="25" width="3.0" peak="1.5"/>
          <flap1 start="0.315" end="1" lift="1.2" drag="1.1"/>
 
@@ -58,7 +59,8 @@
   <hstab x="-2.476" y="0" z="0.367"
 	 chord="1.436"
 	 length="1.921"
-         taper="0.38">
+         taper="0.38"
+         sweep="8">
          <stall aoa="16" width="8" peak="1.5"/>
          <flap0 start="0.0" end="1" lift="1.55" drag="1.2"/>
          <control-input axis="/controls/flight/elevator" control="FLAP0"/>
@@ -69,7 +71,8 @@
   <vstab x="-2.744" y="0" z="-0.058"
 	 chord="1.679"
 	 length="1.483"
-         taper="0.48">
+         taper="0.48"
+         sweep="14">
          <stall aoa="14" width="4" peak="1.5"/>
          <flap0 start="0" end="1" lift="1.6" drag="1.2"/>
          <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
@@ -88,7 +91,7 @@
                  Propeller diameter: 3.475 m
   -->
   <propeller x="3.207" y="0.0" z="0.123"
-             radius="0.99"
+             radius="1.158"
              mass="460"
              moment="-4"
              cruise-power="180"
@@ -145,7 +148,7 @@
 
   <weight x="0.609" y="0.0" z="0.166" mass-prop="/sim/weight[0]/weight-lb"/>
 
-  <!-- CG théorique x=1.087 y=0.0 z=-0.317 -->
+  <!-- CG theorique x=1.087 y=0.0 z=-0.317 -->
   <ballast x="-0.174" y="0.0" z="-1.728" mass="400" />
 
 </airplane>
