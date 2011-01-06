@@ -30,7 +30,10 @@
 
   <cockpit x="0.518" y="0" z="0.679"/>
 
-  <fuselage ax="3.462" ay="0" az="0.123" bx="-3.066" by="0" bz="0.165" width="1.09" taper="0.4" midpoint="0.2"/>
+  <fuselage ax="3.462" ay="0" az="0.123" bx="3.111" by="0" bz="0.123" width="0.8" taper="0.35" midpoint="1"/>
+  <fuselage ax="3.111" ay="0" az="0.123" bx="0.178" by="0" bz="0.123" width="0.95" taper="0.9" midpoint="0.5"/>
+  <fuselage ax="0.178" ay="0" az="0.123" bx="-2.710" by="0" bz="0.171" width="0.9" taper="0.4" midpoint="0"/>
+
 
   <!-- Wing up -->
   <wing x="1.876" y="0" z="1.098"
@@ -47,7 +50,7 @@
          taper="1"
          camber="0.08">
          <stall aoa="25" width="3.0" peak="1.5"/>
-         <flap1 start="0.315" end="1" lift="1.2" drag="1.1"/>
+         <flap1 start="0.315" end="0.965" lift="1.2" drag="1.1"/>
 
          <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
          <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
@@ -116,9 +119,10 @@
   <!-- Left wheel -->
   <gear x="2.363" y="0.956" z="-1.399"
         compression="0.15"
-        spring="1.8"
-        damp="0.3"
-        on-solid="1">
+        spring="0.8"
+        damp="3"
+        on-solid="1"
+        sfric="0.6">
         <control-input axis="/controls/gear/brake-left" control="BRAKE" split="true"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
   </gear>
@@ -126,9 +130,10 @@
   <!-- Right wheel -->
   <gear x="2.363" y="-0.956" z="-1.399"
         compression="0.15"
-        spring="1.8"
-        damp="0.3"
-        on-solid="1">
+        spring="0.8"
+        damp="3"
+        on-solid="1"
+        sfric="0.6">
         <control-input axis="/controls/gear/brake-right" control="BRAKE" split="true"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
   </gear>
