@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -7,7 +7,6 @@
   <animation>
     <!-- Objets opaques -->
     <object-name>interieur</object-name>
-
 
     <!-- Objets transparents -->
     <object-name>intvitres</object-name>
@@ -24,6 +23,15 @@
     <type>noshadow</type>
     <object-name>intvitres</object-name>
   </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>intvitres</object-name>
+  </effect>
 
   <!-- Pilote -->
   <model>
@@ -47,7 +55,7 @@
 
   <!-- Tableau de bord co pilote -->
   <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/copanel.xml</path>
+    <path>Aircraft/Stearman/Models/Interior/Panel/panel.xml</path>
     <offsets>
       <x-m> -1.753 </x-m>
       <y-m>  0.000 </y-m>

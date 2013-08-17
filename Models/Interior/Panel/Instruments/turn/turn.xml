@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -22,9 +22,18 @@
   <animation>
     <type>shader</type>
     <shader>chrome</shader>
-    <texture>glass.png</texture>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
     <object-name>vitre</object-name>
   </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>vitre</object-name>
+  </effect>
 
   <animation>
     <type>material</type>
@@ -33,11 +42,10 @@
     <object-name>BallEnclosure</object-name>
     <object-name>ball</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 0.2 </green>
-      <blue>  0.0 </blue>
-      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
-      <factor-prop>/sim/model//material/instruments/factor</factor-prop>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
     </emission>
   </animation>
 
@@ -51,11 +59,6 @@
       <y>  0 </y>
       <z>  0 </z>
     </axis>
-    <center>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </center>
   </animation>
 
   <animation>
@@ -63,8 +66,8 @@
     <object-name>ball</object-name>
     <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
     <factor>21</factor>
-    <min-deg>-13</min-deg>
-    <max-deg>13</max-deg>
+    <min-deg> -13 </min-deg>
+    <max-deg>  13 </max-deg>
     <center>
       <x-m> 0.00 </x-m>
       <y-m> 0.00 </y-m>
@@ -78,5 +81,3 @@
   </animation>
 
 </PropertyList>
-
-

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -18,10 +18,10 @@
     <object-name>fond</object-name>
     <object-name>start</object-name>
     <emission>
-      <red>0.075</red>
-      <green>0.015</green>
-      <blue>0.00001</blue>
-      <factor-prop>/sim/model/material/instruments/factor</factor-prop>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
     </emission>
   </animation>
 
@@ -96,12 +96,7 @@
     <type>rotate</type>
     <object-name>select</object-name>
     <property>/controls/engines/engine/magnetos</property>
-    <factor>42</factor>
-    <center>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </center>
+    <factor> 42 </factor>
     <axis>
       <x> -1 </x>
       <y>  0 </y>
@@ -128,5 +123,3 @@
   </animation>        
   
 </PropertyList>
-
-

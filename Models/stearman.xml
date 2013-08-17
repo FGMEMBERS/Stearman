@@ -7,9 +7,23 @@
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Stearman/Models/Liveries", 10);
+      
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
 
@@ -25,6 +39,18 @@
     <object-name>derive</object-name>
     <object-name>profondeur</object-name>
     <object-name>direction</object-name>
+    <object-name>tourvitres</object-name>
+    <object-name>barres</object-name>
+    <object-name>divers</object-name>
+    <object-name>montants</object-name>
+    <object-name>pieds</object-name>
+    <object-name>rebord</object-name>
+    <object-name>grille</object-name>
+    <object-name>arbres</object-name>
+
+    <object-name>trous</object-name>
+    <object-name>bol</object-name>
+    <object-name>helice</object-name>
     <object-name>axeG</object-name>
     <object-name>articuleGH</object-name>
     <object-name>articuleGB</object-name>
@@ -35,10 +61,27 @@
     <object-name>roueD</object-name>
     <object-name>axeA</object-name>
     <object-name>roueA</object-name>
+    <object-name>cables</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>vitres</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>ailesB</object-name>
+    <object-name>aileronG</object-name>
+    <object-name>aileronD</object-name>
+    <object-name>ailesH</object-name>
+    <object-name>ailes2</object-name>
+    <object-name>jambes</object-name>
+    <object-name>derive</object-name>
+    <object-name>profondeur</object-name>
+    <object-name>direction</object-name>
     <object-name>tourvitres</object-name>
-    <object-name>trous</object-name>
-    <object-name>bol</object-name>
-    <object-name>helice</object-name>
     <object-name>barres</object-name>
     <object-name>divers</object-name>
     <object-name>montants</object-name>
@@ -47,11 +90,34 @@
     <object-name>grille</object-name>
     <object-name>arbres</object-name>
 
-    <!-- Objets transparents -->
-    <object-name>vitres</object-name>
-    <object-name>propblur</object-name>
-    <object-name>propdisc</object-name>
+    <object-name>trous</object-name>
+    <object-name>bol</object-name>
+    <object-name>helice</object-name>
+    <object-name>axeG</object-name>
+    <object-name>articuleGH</object-name>
+    <object-name>articuleGB</object-name>
+    <object-name>roueG</object-name>
+    <object-name>axeD</object-name>
+    <object-name>articuleDH</object-name>
+    <object-name>articuleDB</object-name>
+    <object-name>roueD</object-name>
+    <object-name>axeA</object-name>
+    <object-name>roueA</object-name>
     <object-name>cables</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
   </animation>
 
   <animation>
@@ -68,91 +134,87 @@
     <object-name>vitres</object-name>
   </animation>
 
-  <animation>
-    <type>material</type>
-    <object-name>fuselage</object-name>
-    <object-name>ailesB</object-name>
-    <object-name>aileronG</object-name>
-    <object-name>aileronD</object-name>
-    <object-name>ailesH</object-name>
-    <object-name>ailes2</object-name>
-    <object-name>jambes</object-name>
-    <object-name>derive</object-name>
-    <object-name>profondeur</object-name>
-    <object-name>direction</object-name>
-    <object-name>axeG</object-name>
-    <object-name>articuleGH</object-name>
-    <object-name>articuleGB</object-name>
-    <object-name>roueG</object-name>
-    <object-name>axeD</object-name>
-    <object-name>articuleDH</object-name>
-    <object-name>articuleDB</object-name>
-    <object-name>roueD</object-name>
-    <object-name>axeA</object-name>
-    <object-name>roueA</object-name>
-    <object-name>tourvitres</object-name>
-    <object-name>trous</object-name>
-    <object-name>bol</object-name>
-    <object-name>helice</object-name>
-    <object-name>barres</object-name>
-    <object-name>divers</object-name>
-    <object-name>montants</object-name>
-    <object-name>pieds</object-name>
-    <object-name>rebord</object-name>
-    <object-name>grille</object-name>
-    <object-name>arbres</object-name>
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+    <object-name>vitres</object-name>
+  </effect>
 
-    <property-base>sim/model/livery</property-base>
-    <texture-prop>texture</texture-prop>
-    <texture>texture.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
-
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
-    <specular>
-      <red-prop>specular/red</red-prop>
-      <green-prop>specular/green</green-prop>
-      <blue-prop>specular/blue</blue-prop>
-    </specular>
-
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
-  </animation>
-
-  <!-- Intérieur -->
+  <!-- Une ombre pour OSG -->
   <model>
-    <path>Aircraft/Stearman/Models/Interior/interior.xml</path>
+    <path>Aircraft/Stearman/Models/shadow.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
+      <x-m>  0.00 </x-m>
+      <y-m>  0.00 </y-m>
+      <z-m> -1.00 </z-m>
     </offsets>
   </model>
 
+  <!-- Intérieur -->
+  <model>
+    <name>Interieur</name>
+    <path>Aircraft/Stearman/Models/Interior/interior.xml</path>
+  </model>
+
+  <!-- For Rembrandt -->
+  <animation>
+    <type>noshadow</type>
+    <object-name>Interieur</object-name>
+  </animation>
+
   <!-- Moteur -->
   <model>
-    <path>Aircraft/Stearman/Models/Engine/r670.xml</path>
+    <path>Aircraft/Stearman/Models/Engine/engine.xml</path>
     <offsets>
       <x-m> -3.207 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  0.123 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Cranking effects -->
+  <model>
+    <path>Aircraft/Stearman/Models/Effects/cranking/cranking.xml</path>
+    <offsets>
+      <x-m> -2.72 </x-m>
+      <y-m>  0.52 </y-m>
+      <z-m> -0.23 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Effets sur le sol -->
+  <!-- Roue gauche -->
+  <model>
+    <path>Aircraft/Stearman/Models/Effects/ground/ground1.xml</path>
+    <offsets>
+      <x-m> -2.363 </x-m>
+      <y-m> -0.956 </y-m>
+      <z-m> -1.399 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Roue droite -->
+  <model>
+    <path>Aircraft/Stearman/Models/Effects/ground/ground2.xml</path>
+    <offsets>
+      <x-m> -2.363 </x-m>
+      <y-m>  0.956 </y-m>
+      <z-m> -1.399 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Patte de queue -->
+  <model>
+    <path>Aircraft/Stearman/Models/Effects/ground/ground0.xml</path>   
+    <offsets>
+      <x-m>  2.957 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.411 </z-m>
     </offsets>
   </model>
 
@@ -208,6 +270,12 @@
   <animation>
     <type>spin</type>
     <object-name>HeliceComplete</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 20 </value>
+      </greater-than>
+    </condition>
     <property>engines/engine[0]/rpm</property>
     <factor> 1 </factor>
     <center>
@@ -468,4 +536,3 @@
   </animation>
 
 </PropertyList>
-
