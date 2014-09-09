@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>oil-fuel-temp.ac</path>
+
+  <animation>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needletemp</object-name>
+    <object-name>needlefuel</object-name>
+    <object-name>needleoil</object-name>
+
+    <object-name>vitre</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitre</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>vitre</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation> 
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needletemp</object-name>
+    <object-name>needlefuel</object-name>
+    <object-name>needleoil</object-name>
+    <emission>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>needletemp</object-name>
+    <property>/engines/engine[0]/egt-degf</property>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry> <!--   0 deg C -->
+      <entry><ind>  68 </ind><dep>  30 </dep></entry> <!--  20 deg C -->
+      <entry><ind> 104 </ind><dep>  65 </dep></entry> <!--  40 deg C -->
+      <entry><ind> 140 </ind><dep> 100 </dep></entry> <!--  60 deg C-->
+      <entry><ind> 176 </ind><dep> 139 </dep></entry> <!--  80 deg C -->
+      <entry><ind> 212 </ind><dep> 171 </dep></entry> <!-- 100 deg C -->
+    </interpolation>
+    <axis> 
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needlefuel</object-name>
+    <property>consumables/fuel/tank[0]/level-lbs</property>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry>
+      <entry><ind>  50 </ind><dep>  35 </dep></entry>
+      <entry><ind> 100 </ind><dep>  72 </dep></entry>
+      <entry><ind> 150 </ind><dep> 108 </dep></entry>
+      <entry><ind> 200 </ind><dep> 145 </dep></entry>
+      <entry><ind> 250 </ind><dep> 185 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.006 </y-m>
+      <z-m> -0.009 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation> 
+    <type>rotate</type>
+    <object-name>needleoil</object-name>
+    <property>/engines/engine[0]/oil-temperature-degf</property>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>  0 </dep></entry> <!--   0 deg C -->
+      <entry><ind> 122 </ind><dep> 10 </dep></entry> <!--  50 deg C -->
+      <entry><ind> 212 </ind><dep> 20 </dep></entry> <!-- 100 deg C -->
+      <entry><ind> 302 </ind><dep> 35 </dep></entry> <!-- 150 deg C-->
+      <entry><ind> 392 </ind><dep> 50 </dep></entry> <!-- 200 deg C -->
+    </interpolation>
+    <center>
+      <x-m>  0.000 </x-m>
+      <y-m> -0.004 </y-m>
+      <z-m> -0.009 </z-m>  
+    </center>
+    <axis> 
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
