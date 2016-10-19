@@ -9,7 +9,7 @@ data 6
 shadow
 texture "shadow.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 4
 -3.64958 0 -4.904995
 -3.64958 0 4.905001

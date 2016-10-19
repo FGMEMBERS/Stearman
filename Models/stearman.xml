@@ -4,6 +4,11 @@
 
   <path>stearman.ac</path>
 
+  <!-- MP sound call -->
+  <sound>
+    <path>Aircraft/Stearman/Sounds/mp-sound.xml</path>
+  </sound>
+  
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Stearman/Models/Liveries", 10);
@@ -13,9 +18,9 @@
       var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
       var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
       
-      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
-      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
-    
+      var crew_door = self.getNode("sim/model/door-positions/crew/position-norm", 1);
+      var passenger_door = self.getNode("sim/model/door-positions/passenger/position-norm", 1);
+      
       crew_door.alias(float_0);
       passenger_door.alias(float_1);
     </load>
@@ -113,59 +118,35 @@
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitres</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>propblur</object-name>
-    <object-name>propdisc</object-name>
-    <object-name>vitres</object-name>
   </animation>
 
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
-    <object-name>propblur</object-name>
-    <object-name>propdisc</object-name>
+    <inherits-from>Aircraft/Stearman/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitres</object-name>
   </effect>
-
+  
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitres</object-name>
+    <object-name>propblur</object-name>
+    <object-name>propdisc</object-name>
+  </effect>
+  
   <!-- Une ombre pour OSG -->
   <model>
     <path>Aircraft/Stearman/Models/shadow.xml</path>
     <offsets>
-      <x-m>  0.00 </x-m>
-      <y-m>  0.00 </y-m>
-      <z-m> -1.00 </z-m>
+      <x-m>  0 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -1 </z-m>
     </offsets>
   </model>
 
   <!-- Intérieur -->
   <model>
-    <name>Interieur</name>
     <path>Aircraft/Stearman/Models/Interior/interior.xml</path>
   </model>
-
-  <!-- For Rembrandt -->
-  <animation>
-    <type>noshadow</type>
-    <object-name>Interieur</object-name>
-  </animation>
 
   <!-- Moteur -->
   <model>
@@ -190,7 +171,7 @@
   <!-- Effets sur le sol -->
   <!-- Roue gauche -->
   <model>
-    <path>Aircraft/Stearman/Models/Effects/ground/ground1.xml</path>
+    <path>Aircraft/Stearman/Models/Effects/ground/ground0.xml</path>
     <offsets>
       <x-m> -2.363 </x-m>
       <y-m> -0.956 </y-m>
@@ -200,7 +181,7 @@
 
   <!-- Roue droite -->
   <model>
-    <path>Aircraft/Stearman/Models/Effects/ground/ground2.xml</path>
+    <path>Aircraft/Stearman/Models/Effects/ground/ground1.xml</path>
     <offsets>
       <x-m> -2.363 </x-m>
       <y-m>  0.956 </y-m>
@@ -210,7 +191,7 @@
 
   <!-- Patte de queue -->
   <model>
-    <path>Aircraft/Stearman/Models/Effects/ground/ground0.xml</path>   
+    <path>Aircraft/Stearman/Models/Effects/ground/ground2.xml</path>   
     <offsets>
       <x-m>  2.957 </x-m>
       <y-m>  0.000 </y-m>
@@ -262,7 +243,7 @@
     <condition>
       <less-than>
         <property>engines/engine[0]/rpm</property>
-	<value>1500</value>
+        <value>1500</value>
       </less-than>
     </condition>
   </animation>
@@ -290,6 +271,60 @@
     </axis>
   </animation>
 
+  <!-- Gouvernes de direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>direction</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 2.84780 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 0.58238 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <!-- Gouverne de profondeur -->
+  <animation>
+    <type>rotate</type>
+    <object-name>arbres</object-name>
+    <object-name>profondeur</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 2.70918 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 0.37299 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>arbres</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> -15 </factor>
+    <center>
+      <x-m> 2.73138 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 0.16613 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
   <!-- Animations des ailerons -->
   <animation>
     <type>rotate</type>
@@ -317,42 +352,6 @@
       <x-m> -0.854 </x-m>
       <y-m>  2.742 </y-m>
       <z-m> -0.305 </z-m>
-    </center>
-    <axis>
-      <x> 0 </x>
-      <y> 1 </y>
-      <z> 0 </z>
-    </axis>
-  </animation>
-
-  <!-- Gouvernes de direction -->
-  <animation>
-    <type>rotate</type>
-    <object-name>direction</object-name>
-    <property>surface-positions/rudder-pos-norm</property>
-    <factor> 20 </factor>
-    <center>
-      <x-m> 2.825 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.601 </z-m>
-    </center>
-    <axis>
-      <x> 0 </x>
-      <y> 0 </y>
-      <z> 1 </z>
-    </axis>
-  </animation>
-
-  <!-- Gouverne de profondeur -->
-  <animation>
-    <type>rotate</type>
-    <object-name>profondeur</object-name>
-    <property>surface-positions/elevator-pos-norm</property>
-    <factor> 20 </factor>
-    <center>
-      <x-m> 2.709 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.373 </z-m>
     </center>
     <axis>
       <x> 0 </x>
@@ -535,4 +534,50 @@
     </axis>
   </animation>
 
+  <!-- Add lights effects -->
+  <model>
+    <path>Aircraft/Stearman/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m>  2.84780 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m>  1.50000 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Stearman/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m> -1.40624 </x-m>
+      <y-m> -4.89115 </y-m>
+      <z-m> -0.26924 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Stearman/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.38624 </x-m>
+      <y-m> -4.89115 </y-m>
+      <z-m> -0.26924 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Stearman/Models/lights/GreenLight.xml</path>
+    <offsets>
+      <x-m> -1.40624 </x-m>
+      <y-m>  4.89115 </y-m>
+      <z-m> -0.26924 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Stearman/Models/lights/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -1.38624 </x-m>
+      <y-m>  4.89115 </y-m>
+      <z-m> -0.26924 </z-m>
+    </offsets>
+  </model>
+  
 </PropertyList>
