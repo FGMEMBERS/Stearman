@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Boeing PT 17 Stearman BARANGER Emmanuel (2009) 
+     Update with Melchior script             (2010)
+     Update by BARANGER Emmanuel             (2013)
+     Update by BARANGER Emmanuel             (2016)
+
+     Sources              : http://en.wikipedia.org/wiki/Boeing-Stearman_Model_75
+
+     Envergure            : 9.81 m   ( 32 ft 2 in )
+     Longueur             : 7.39 m   ( 24 ft 3 in )
+     Hauteur              : 2.79 m   (  9 ft 2 in  )
+     Masse a vide         : 878 kg   ( 1936 lb )
+     Moteur               : 1 Continental R-670-5 220 hp
+     Vitesse max          : 198 km/h ( 108 kts )
+     Vitesse de croisiere : 165 km/h (  90 kts ) aproximatif :(
+-->
+<airplane mass="1936" version="YASIM_VERSION_CURRENT">
+
+  <approach speed="35" aoa="6" fuel="0.2">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65"/>
+    <solve-weight idx="0" weight="180"/>
+  </approach>
+
+  <cruise speed="90" alt="5000" fuel="0.5" >
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture" value="0.65"/>
+    <solve-weight idx="0" weight="180"/>
+  </cruise>
+
+  <cockpit x="0.518" y="0" z="0.679"/>
+
+  <fuselage ax="3.462" ay="0" az="0.123" bx=" 3.111" by="0" bz="0.123" width="0.80" taper="0.35" midpoint="1.0"/>
+  <fuselage ax="3.111" ay="0" az="0.123" bx=" 0.178" by="0" bz="0.123" width="0.95" taper="0.90" midpoint="0.5"/>
+  <fuselage ax="0.178" ay="0" az="0.123" bx="-2.710" by="0" bz="0.171" width="0.90" taper="0.40" midpoint="0.0"/>
+
+  <!-- Wing up -->
+  <wing x="1.876" y="0" z="1.098"
+        chord="1.508"
+        length="4.903"
+        taper="1">
+  </wing>
+
+  <!-- Wing down -->
+  <mstab x="1.215" y="0" z="-0.262"
+         chord="1.508"
+         length="4.903"
+         taper="1"
+         camber="0.005">
+         <stall aoa="20" width="1" peak="1.5"/>
+         <flap1 start="0.31" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+         <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+         <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+         <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+  </mstab>
+
+  <hstab x="-2.476" y="0" z="0.367"
+         chord="1.436"
+         length="1.921"
+         taper="0.38"
+         sweep="8">
+         <stall aoa="18" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-2.744" y="0" z="-0.058"
+         chord="1.679"
+         length="1.483"
+         taper="0.48"
+         sweep="14">
+         <stall aoa="16" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+         <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engine    source            : http://en.wikipedia.org/wiki/Continental_R-670
+
+                 name              : Continental R-670
+                 type              : Seven cylinder air-cooled radial
+                 power cruise      : 225 hp at 2,175 rpm
+                 Compression ratio : 5.4:1
+                 weight            : 460 lbs (209 kg)
+                 Displacement      : 668 cu in (10.94 L)
+                 Propeller diameter: 3.475 m
+  -->
+  <propeller x="3.207" y="0.0" z="0.123"
+             radius="1.158"
+             mass="460"
+             moment="14"
+             cruise-power="180"
+             cruise-alt="5000"
+             cruise-speed="90"
+             cruise-rpm="2100"
+             takeoff-power="220"
+             takeoff-rpm="2300">
+             <actionpt x="3.558" y="0.0" z="0.123" />
+             <piston-engine eng-rpm="2200"
+                            alt="5000"
+                            eng-power="220"
+                            displacement="668"
+                            compression="5.4">
+                            <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+                            <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+                            <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+                            <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+             </piston-engine>
+
+  </propeller>
+
+  <!-- Left wheel -->
+  <gear x="2.363" y="0.956" z="-1.399"
+        compression="0.15"
+        spring="0.8"
+        damp="3"
+        on-solid="1"
+        sfric="0.6">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="2.363" y="-0.956" z="-1.399"
+        compression="0.15"
+        spring="0.8"
+        damp="3"
+        on-solid="1"
+        sfric="0.6">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE" split="true"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+  </gear>
+
+  <!-- Tail wheel -->
+  <gear x="-2.957" y="0" z="-0.411"
+        compression="0.1"
+        spring="0.8"
+        on-solid="1"
+        sfric="1"
+        dfric="1">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.5" dst1="-0.5"/>
+  </gear>
+
+  <!-- Fuel: 250 lbs -->
+  <tank x="2" y="0" z="1.092" capacity="250"/>
+
+  <weight x="0.609" y="0.0" z="0.166" mass-prop="/sim/weight[0]/weight-lb"/>
+
+</airplane>
