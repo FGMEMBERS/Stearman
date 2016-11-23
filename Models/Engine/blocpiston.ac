@@ -9,7 +9,7 @@ data 10
 blocpiston
 texture "r670.png"
 texrep 1.000000 1.000000
-crease 30.000001
+crease 180.000005
 numvert 3894
 0.118651 0.428845 -0
 0.11666 0.428845 0.022461

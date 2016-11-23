@@ -11,7 +11,37 @@
     <!-- Objets transparents -->
   </animation>
 
-  <!-- magneto -->
+  <!-- ALT -->
+  <model>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m>  0.004 </x-m>
+      <y-m> -0.110 </y-m>
+      <z-m> -0.020 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- ASI -->
+  <model>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m>  0.001 </x-m>
+      <y-m> -0.040 </y-m>
+      <z-m> -0.020 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- COMPASS -->
+  <model>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/compass/compass.xml</path>
+    <offsets>
+      <x-m> 0.003 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.080 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- MAGNETO -->
   <model>
     <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/magneto/magneto.xml</path>
     <offsets>
@@ -21,37 +51,27 @@
     </offsets>
   </model>
 
-  <!-- compass -->
+  <!-- MANIFOLD -->
   <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/compass/compass.xml</path>
-    <offsets>
-      <x-m> 0.003 </x-m>
-      <y-m> 0.000 </y-m>
-      <z-m> 0.080 </z-m>
-    </offsets>
-  </model>
-
-  <!-- alt -->
-  <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/man/man.xml</path>
     <offsets>
       <x-m>  0.004 </x-m>
-      <y-m> -0.110 </y-m>
+      <y-m>  0.110 </y-m>
       <z-m> -0.020 </z-m>
     </offsets>
   </model>
-
-  <!-- asi -->
+  
+  <!-- FUEL/OIL/TEMP -->
   <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/oil-fuel-temp/oil-fuel-temp.xml</path>
     <offsets>
-      <x-m>  0.001 </x-m>
-      <y-m> -0.040 </y-m>
-      <z-m> -0.020 </z-m>
+      <x-m>  0.004 </x-m>
+      <y-m>  0.080 </y-m>
+      <z-m> -0.090 </z-m>
     </offsets>
   </model>
-
-  <!-- rpm -->
+  
+  <!-- RPM -->
   <model>
     <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/rpm/rpm.xml</path>
     <offsets>
@@ -61,17 +81,17 @@
     </offsets>
   </model>
 
-  <!-- manifold -->
+  <!-- TURN -->
   <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/man/man.xml</path>
+    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/turn/turn.xml</path>
     <offsets>
       <x-m>  0.004 </x-m>
-      <y-m>  0.110 </y-m>
-      <z-m> -0.020 </z-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.090 </z-m>
     </offsets>
   </model>
-
-  <!-- vsi -->
+  
+  <!-- VSI -->
   <model>
     <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
     <offsets>
@@ -81,25 +101,4 @@
     </offsets>
   </model>
 
-  <!-- turn -->
-  <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/turn/turn.xml</path>
-    <offsets>
-      <x-m>  0.004 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m> -0.090 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Fuel/Oil/Temp -->
-  <model>
-    <path>Aircraft/Stearman/Models/Interior/Panel/Instruments/oil-fuel-temp/oil-fuel-temp.xml</path>
-    <offsets>
-      <x-m>  0.004 </x-m>
-      <y-m>  0.080 </y-m>
-      <z-m> -0.090 </z-m>
-    </offsets>
-  </model>
-
 </PropertyList>
-

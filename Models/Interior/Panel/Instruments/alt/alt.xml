@@ -18,27 +18,12 @@
     <object-name>vitre</object-name>
   </animation>
 
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitre</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitre</object-name>
-  </animation>
-
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
+    <inherits-from>Aircraft/Stearman/Models/Effects/Glass/glass</inherits-from>
     <object-name>vitre</object-name>
   </effect>
-
+  
   <animation>
     <type>material</type>
     <object-name>face</object-name>
@@ -61,7 +46,7 @@
     <type>rotate</type>
     <object-name>needle100</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
-    <factor>0.36</factor>
+    <factor> 0.36 </factor>
     <axis>
       <x> -1 </x>
       <y>  0 </y>
@@ -73,7 +58,7 @@
     <type>rotate</type>
     <object-name>needle1000</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
-    <factor>0.036</factor>
+    <factor> 0.036 </factor>
     <axis>
       <x> -1 </x>
       <y>  0 </y>
@@ -85,7 +70,7 @@
     <type>rotate</type>
     <object-name>needle10000</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
-    <factor>0.0036</factor>
+    <factor> 0.0036 </factor>
     <axis>
       <x> -1 </x>
       <y>  0 </y>
